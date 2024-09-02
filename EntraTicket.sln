@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntraTicket", "EntraTicket\EntraTicket.csproj", "{1F776716-F6DD-4960-BDB0-BD35C42702FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F776716-F6DD-4960-BDB0-BD35C42702FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F776716-F6DD-4960-BDB0-BD35C42702FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F776716-F6DD-4960-BDB0-BD35C42702FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F776716-F6DD-4960-BDB0-BD35C42702FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E23968A-77E6-41F1-8D50-803C12720CAF}
+	EndGlobalSection
+EndGlobal
