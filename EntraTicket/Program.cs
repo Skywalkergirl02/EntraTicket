@@ -7,7 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Agrega servicios al contenedor.
 builder.Services.AddControllers();
-builder.Services.AddSingleton<DatabaseContext>();
+
+// Configura la cadena de conexión
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// Registra el repositorio en el contenedor de servicios
+builder.Services.AddScoped<EventRepository>(sp => new EventRepository(connectionString));
 
 // Configuración para JWT
 builder.Services.AddAuthentication(options =>
@@ -41,11 +46,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Configura el middleware para archivos estáticos
+app.UseStaticFiles(); // Permite servir archivos estáticos desde wwwroot
+
 app.UseHttpsRedirection();
 
 // Configuración de autenticación y autorización
 app.UseAuthentication(); // Asegúrate de que esto esté antes de UseAuthorization()
 app.UseAuthorization();
+
+// Configura la página de inicio
+app.MapGet("/", () => Results.File("wwwroot/index.html"));
 
 app.MapControllers();
 

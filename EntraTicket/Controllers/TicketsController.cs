@@ -9,11 +9,11 @@ namespace EntraTicket.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EntradasController : ControllerBase
+    public class TicketsController : ControllerBase
     {
         private readonly DatabaseContext _context;
 
-        public EntradasController(DatabaseContext context)
+        public TicketsController(DatabaseContext context)
         {
             _context = context;
         }
