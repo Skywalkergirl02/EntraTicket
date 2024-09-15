@@ -12,6 +12,6 @@ namespace EntraTicket.Data
             _connectionString = connectionString;
         }
 
-        // Métodos para gestionar usuarios, como autenticación, registro, etc.
+        // Métodos para gestionar usuarios, como autenticación, registrooooo, etc.
     }
 }
