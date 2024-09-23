@@ -1,4 +1,5 @@
 using EntraTicket.Data;
+using EntraTicket.Repositories; // Asegúrate de que este using esté presente
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -11,8 +12,9 @@ builder.Services.AddControllers();
 // Configura la cadena de conexión
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// Registra el repositorio en el contenedor de servicios
+// Registra los repositorios en el contenedor de servicios
 builder.Services.AddScoped<EventRepository>(sp => new EventRepository(connectionString));
+builder.Services.AddScoped<Metodos>(); // Registrar la clase Metodos
 
 // Configuración para JWT
 builder.Services.AddAuthentication(options =>
