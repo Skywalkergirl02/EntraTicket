@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using EntraTicket.Models;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace Events.Controllers
 {
@@ -25,6 +24,17 @@ namespace Events.Controllers
             return Ok(result);
         }
 
+        // GET api/metododepago/usuario/{usuarioId}
+        [HttpGet("usuario/{usuarioId}")]
+        public ActionResult<IEnumerable<MetodoDePago>> GetMetodosDePagoPorUsuario(int usuarioId)
+        {
+            var result = _metodos.ObtenerMetodosDePagoPorUsuario(usuarioId);
+            if (result == null || result.Count == 0)
+            {
+                return NotFound($"No se encontraron métodos de pago para el usuario con ID {usuarioId}.");
+            }
+            return Ok(result);
+        }
 
         // POST api/metododepago
         [HttpPost]
@@ -35,8 +45,8 @@ namespace Events.Controllers
                 return BadRequest("El método de pago no puede ser nulo.");
             }
 
+            _metodos.AgregarMetodoDePago(nuevoMetodo);
             return CreatedAtAction(nameof(Get), new { id = nuevoMetodo.MetodoID }, nuevoMetodo);
         }
     }
 }
-

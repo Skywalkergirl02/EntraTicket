@@ -1,7 +1,8 @@
 using EntraTicket.Data;
-using EntraTicket.Repositories; // Asegúrate de que este using esté presente
+using EntraTicket.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using EntraTicket;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,7 +55,7 @@ app.UseStaticFiles(); // Permite servir archivos estáticos desde wwwroot
 app.UseHttpsRedirection();
 
 // Configuración de autenticación y autorización
-app.UseAuthentication(); // Asegúrate de que esto esté antes de UseAuthorization()
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Configura la página de inicio

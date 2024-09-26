@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace EntraTicket.Data
 {
@@ -28,6 +29,7 @@ namespace EntraTicket.Data
                         command.Parameters.AddRange(parameters);
                     }
 
+                    // Usar SqlDataAdapter para llenar un DataTable
                     using (var adapter = new SqlDataAdapter(command))
                     {
                         var dataTable = new DataTable();
@@ -49,7 +51,7 @@ namespace EntraTicket.Data
                         command.Parameters.AddRange(parameters);
                     }
 
-                    connection.Open();
+                    connection.Open(); // Asegúrate de abrir la conexión antes de ejecutar
                     return command.ExecuteNonQuery();
                 }
             }
